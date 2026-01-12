@@ -5,12 +5,12 @@
   "userStories": [
     {
       "id": "US-001",
-      "title": "Configure OpenCode MCP Server",
-      "description": "As a developer, I want to register the jupyter-mcp-server in opencode.json so that the tools are available.",
+      "title": "Document OpenCode Configuration",
+      "description": "As a developer, I want clear instructions on how to register the jupyter-mcp-server in opencode.json without the AI editing my files.",
       "acceptanceCriteria": [
-        "Add 'jupyter' entry to 'mcp' section in opencode.json",
-        "Configure uvx command for jupyter-mcp-server@latest",
-        "Set JUPYTER_URL and JUPYTER_TOKEN environment variables",
+        "Create SETUP_INSTRUCTIONS.md",
+        "Provide JSON snippet for 'mcp' section in opencode.json",
+        "Document required JUPYTER_URL and JUPYTER_TOKEN env vars",
         "Typecheck passes"
       ],
       "priority": 1,
@@ -19,12 +19,11 @@
     },
     {
       "id": "US-002",
-      "title": "Define Data-Scientist Agent",
-      "description": "As a user, I want a specialized agent for Jupyter tasks to avoid context bloat.",
+      "title": "Design Data-Scientist Agent Profile",
+      "description": "As a user, I want a specialized agent definition for Jupyter tasks provided as a template.",
       "acceptanceCriteria": [
-        "Add 'data-scientist' agent to oh-my-opencode.json",
-        "Limit tools to 'jupyter_*', 'bash', and 'read'",
-        "Set temperature to 0.2",
+        "Create proposed agent JSON for oh-my-opencode.json",
+        "Specify tool filtering for 'jupyter_*'",
         "Typecheck passes"
       ],
       "priority": 2,
