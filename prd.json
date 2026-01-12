@@ -1,0 +1,78 @@
+{
+  "project": "OpenJupy",
+  "branchName": "ralph/opencode-jupyter-integration",
+  "description": "OpenCode Jupyter Integration - Production-grade Jupyter Notebook integration for OpenCode using jupyter-mcp-server.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Configure OpenCode MCP Server",
+      "description": "As a developer, I want to register the jupyter-mcp-server in opencode.json so that the tools are available.",
+      "acceptanceCriteria": [
+        "Add 'jupyter' entry to 'mcp' section in opencode.json",
+        "Configure uvx command for jupyter-mcp-server@latest",
+        "Set JUPYTER_URL and JUPYTER_TOKEN environment variables",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Define Data-Scientist Agent",
+      "description": "As a user, I want a specialized agent for Jupyter tasks to avoid context bloat.",
+      "acceptanceCriteria": [
+        "Add 'data-scientist' agent to oh-my-opencode.json",
+        "Limit tools to 'jupyter_*', 'bash', and 'read'",
+        "Set temperature to 0.2",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Implement Smart Error Mapping Middleware",
+      "description": "As a user, I want actionable fix suggestions when Python code fails.",
+      "acceptanceCriteria": [
+        "Create a script or middleware to intercept Jupyter tracebacks",
+        "Append fix suggestions for ModuleNotFoundError (e.g. 'uv add')",
+        "Append fix suggestions for package name mismatches (cv2 -> opencv-python)",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Implement Claude-Specific Tool Guidance",
+      "description": "As an AI, I want metadata in tool returns to know the next logical step.",
+      "acceptanceCriteria": [
+        "Wrap jupyter-mcp-server returns with 'claude_tip' and 'claude_next'",
+        "Tips explain result context (e.g. variable types)",
+        "Next suggests logical follow-ups (e.g. plotting)",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Integration Testing",
+      "description": "As a developer, I want to verify the end-to-end flow works with real-time sync.",
+      "acceptanceCriteria": [
+        "Verify notebook creation and cell insertion",
+        "Verify code execution with persistent state",
+        "Verify visual plot rendering in chat",
+        "Verify real-time sync with JupyterLab UI",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
