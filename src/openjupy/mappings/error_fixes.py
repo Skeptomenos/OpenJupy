@@ -8,7 +8,6 @@ users resolve common errors quickly.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Callable
 
 
 @dataclass
@@ -93,18 +92,7 @@ ERROR_FIX_MAP: dict[str, FixSuggestion] = {
 
 def get_fix_suggestion(
     error_type: str,
-    error_message: str,
-    context: dict[str, str] | None = None,
+    _error_message: str,
+    _context: dict[str, str] | None = None,
 ) -> FixSuggestion | None:
-    """
-    Get a fix suggestion for a given error type.
-
-    Args:
-        error_type: The Python exception class name.
-        error_message: The error message string.
-        context: Optional context dict with extracted values (module, name, path, etc.)
-
-    Returns:
-        A FixSuggestion if a mapping exists, None otherwise.
-    """
     return ERROR_FIX_MAP.get(error_type)

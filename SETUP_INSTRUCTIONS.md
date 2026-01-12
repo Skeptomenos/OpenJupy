@@ -171,6 +171,19 @@ Once configured, the following tools become available:
 | `list_kernels` | List available kernels |
 | `list_files` | List files in Jupyter filesystem |
 
+## Verifying Real-Time Sync
+
+To verify that RTC (Real-Time Collaboration) is working:
+
+1. Open JupyterLab in your browser at `http://localhost:8888`
+2. Create or open a notebook
+3. In OpenCode, use the Jupyter tools to add a cell to the same notebook
+4. The cell should appear in your browser within 2 seconds
+
+If sync is not working, check:
+- `jupyter-collaboration` is installed: `pip show jupyter-collaboration`
+- `datalayer_pycrdt` version is correct: `pip show datalayer_pycrdt` (should be 0.12.17)
+
 ## Security Notes
 
 1. **Never commit tokens**: Add `JUPYTER_TOKEN` to your `.env` file, not config files

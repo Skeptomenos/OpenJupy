@@ -8,8 +8,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-from openjupy.mappings.packages import get_correct_package_name
 from openjupy.mappings.error_fixes import ERROR_FIX_MAP, FixSuggestion
+from openjupy.mappings.packages import get_correct_package_name
 
 
 @dataclass
@@ -52,7 +52,7 @@ class ErrorHandler:
     ATTRIBUTE_ERROR_PATTERN = re.compile(
         r"['\"]?([^'\"]+)['\"]? object has no attribute ['\"]?([^'\"]+)['\"]?"
     )
-    KEY_ERROR_PATTERN = re.compile(r"KeyError: ['\"]?([^'\"]+)['\"]?")
+    KEY_ERROR_PATTERN = re.compile(r"['\"]?([^'\"]+)['\"]?")
     FILE_NOT_FOUND_PATTERN = re.compile(
         r"\[Errno 2\] No such file or directory: ['\"]?([^'\"]+)['\"]?"
     )
@@ -208,11 +208,16 @@ class ErrorHandler:
         return "Review the error and fix the underlying issue."
 
     def _generate_action(self, parsed: ParsedError, fix: FixSuggestion | None) -> str | None:
-        """Generate a concrete action command if applicable."""
         if parsed.error_type == "ModuleNotFoundError":
             package = parsed.extracted_values.get("package")
             if package:
                 return f"uv add {package}"
+
+        if fix and fix.action_template:
+            try:
+                return fix.action_template.format(**parsed.extracted_values)
+            except KeyError:
+                return None
 
         return None
 
