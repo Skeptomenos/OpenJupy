@@ -1,0 +1,16 @@
+{
+  "$comment": "Add this 'mcp' section to your ~/.config/opencode/opencode.json",
+  "mcp": {
+    "jupyter": {
+      "type": "local",
+      "command": ["uvx", "jupyter-mcp-server@latest"],
+      "enabled": true,
+      "timeout": 30000,
+      "environment": {
+        "JUPYTER_URL": "http://localhost:8888",
+        "JUPYTER_TOKEN": "{env:JUPYTER_TOKEN}",
+        "ALLOW_IMG_OUTPUT": "true"
+      }
+    }
+  }
+}
