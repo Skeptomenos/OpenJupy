@@ -64,4 +64,4 @@ Test live API endpoints or database connections interactively.
 ## 📖 Further Reading
 - [SETUP_INSTRUCTIONS.md](SETUP_INSTRUCTIONS.md): Detailed configuration guide.
 - [WALKTHROUGH_DATA_PIPELINES.md](WALKTHROUGH_DATA_PIPELINES.md): Step-by-step guide for debugging large Python projects.
-- [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md): Technical roadmap and project architecture.
+- [IMPLEMENTATION_PLAN.md](OpenJupy/IMPLEMENTATION_PLAN.md): Technical roadmap and project architecture.
